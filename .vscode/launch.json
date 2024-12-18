@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "Py Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "app.main",
+      "jinja": true
+    }
+  ]
+}
