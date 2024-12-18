@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     mongo_uri: SecretStr
     openai_key: SecretStr
-    tavily_api_key: SecretStr
+    tavily_api_key: str
 
     # LangSmith
     langchain_tracing_v2: bool = True
