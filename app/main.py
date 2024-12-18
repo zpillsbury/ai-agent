@@ -1,7 +1,7 @@
 from typing import Annotated, TypedDict
 
 import anyio
-from langchain_core.messages import BaseMessage
+from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.graph.message import add_messages
@@ -32,19 +32,35 @@ async def chatbot(state: State) -> State:
 
 
 graph_builder.add_node("chatbot", chatbot)
+
 graph_builder.add_edge(START, "chatbot")
 graph_builder.add_edge("chatbot", END)
 
 graph = graph_builder.compile()
 
 
+async def run_graph(question: str) -> None:
+    """
+    Run the graph
+    """
+    async for event in graph.astream({"messages": [HumanMessage(content=question)]}):
+        for value in event.values():
+            print(value["messages"][-1].content)
+
+    return None
+
+
 async def main() -> None:
     """
     AI Agent
     """
-    async for event in graph.astream({"messages": [("user", "how are you?")]}):
-        for value in event.values():
-            print("Assistant:", value["messages"][-1].content)
+    while True:
+        question = input("q: ")
+        if question.lower() in ["quit", "exit", "q"]:
+            print("Goodbye!")
+            break
+
+        await run_graph(question)
 
     return None
 
