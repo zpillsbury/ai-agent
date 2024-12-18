@@ -10,6 +10,7 @@ dependencies = [
     { name = "langchain-community" },
     { name = "langchain-openai" },
     { name = "langgraph" },
+    { name = "langgraph-checkpoint-mongodb" },
     { name = "langsmith" },
     { name = "motor" },
     { name = "pydantic-settings" },
@@ -31,6 +32,7 @@ requires-dist = [
     { name = "langchain-community", specifier = ">=0.3.12" },
     { name = "langchain-openai", specifier = ">=0.2.12" },
     { name = "langgraph", specifier = ">=0.2.59" },
+    { name = "langgraph-checkpoint-mongodb", specifier = ">=0.1.0" },
     { name = "langsmith", specifier = ">=0.2.3" },
     { name = "motor", specifier = ">=3.6.0" },
     { name = "pydantic-settings", specifier = ">=2.7.0" },
@@ -640,6 +642,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/61/64/ac32516240491107d43b62f83313b320a4d655314badb4ef3f35efc38025/langgraph_checkpoint-2.0.9.tar.gz", hash = "sha256:43847d7e385a2d9d2b684155920998e44ed42d2d1780719e4f6111fe3d6db84c", size = 33299 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d8/63/b2ecb322ffc978e6bcf27e3786a0efa3142c57d58daeb4e4397196117030/langgraph_checkpoint-2.0.9-py3-none-any.whl", hash = "sha256:b546ed6129929b8941ac08af6ce5cd26c8ebe1d25883d3c48638d34ade91ce42", size = 37318 },
+]
+
+[[package]]
+name = "langgraph-checkpoint-mongodb"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langgraph" },
+    { name = "langgraph-checkpoint" },
+    { name = "motor" },
+    { name = "pymongo" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a7/cf/8727d3d1d92a5f21a5227ce46ed562b1f7fdb85047b687f7aedd488f7762/langgraph_checkpoint_mongodb-0.1.0.tar.gz", hash = "sha256:3165c134ad5c82a3fe02fef04c81dcd48a3f5d031e07a9d1cb84457241f76793", size = 7407 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/71/39/1a6d03989fad36e1a192420a4623299104705f595fc354a83cb4babccede/langgraph_checkpoint_mongodb-0.1.0-py3-none-any.whl", hash = "sha256:52f20956b36e0275ff805a1eea1db4c1a7e5e0ffe0a1ade65969004fa1654703", size = 9727 },
 ]
 
 [[package]]
