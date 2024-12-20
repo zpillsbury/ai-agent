@@ -103,7 +103,7 @@ async def main() -> None:
     """
     AI Agent
     """
-    config = RunnableConfig(configurable={"thread_id": 2})
+    config = RunnableConfig(configurable={"thread_id": 1})
 
     while True:
         question = input("q: ")
